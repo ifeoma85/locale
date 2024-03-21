@@ -46,11 +46,11 @@ This is a search API which allows the users to search for information about Nige
 
 ## Requirements
 1. User should be able to register 
-2. User should be able to login with ApiKey
-3
-4. User should be able to search for informations about state
-5. Users should be able to search for Local Government Areas(LGAs)
-6. Users should be able to get information on regions and States in each region
+2. User should be able to login with the registered credentials.
+3. User should get ApiKey once login is successful.
+4. User should be able to search for informations about states in Nigeria
+5. Users should be able to search for Local Government Areas(LGAs) in each state in Nigeria
+6. Users should be able to get information on regions and States in each region.
 7. Test application
 ---
 ## Setup
@@ -61,7 +61,7 @@ This is a search API which allows the users to search for information about Nige
 
 ---
 ## Base URL
-- somehostsite.com
+- render.com
 
 
 ## Models
@@ -89,7 +89,10 @@ This is a search API which allows the users to search for information about Nige
   Description|  string |  required  |
 |  LGA       |  number |  required  |
 |  LGAs      |  string |  required  |
+|  Region    |  string |  required  |
 
+### regions
+**| field  |  data_type | constraints  |**
 |  id          |  string  |  required  |
 |  Region      |  string  | required   |
 |  Description |   string |  required  |
@@ -127,11 +130,10 @@ This is a search API which allows the users to search for information about Nige
 - Body: 
 ```
 {
-  "password": "Password1",
-  "username": 'jon_doe",
+ "email": 'Ifeomaugwu85@gmail.com",
+ "password": "Eunice85",
+  ,
 }
-```
-
 - Responses
 
 Success
@@ -155,7 +157,7 @@ Success
 - Authorization: apiKey
 @Param
 
-    - Route: /_id:65d03590bc6d42f472c63b22
+    - Route: states/_id:65d03590bc6d42f472c63b22
 - Method: POST
 - Authorization: apiKey
 @Body
@@ -172,25 +174,5 @@ Success
 - Method: POST
 - Authorization: apiKey
 @Body
-- Responses
-
-Success
-```
-{
-    state: 1,
-    total_price: 900,
-    created_at: Mon Oct 31 2022 08:35:00 GMT+0100,
-    items: [{ name: 'chicken pizza', price: 900, size: 'm', quantity: 1}]
-}
-```
----
-### Get Order
-
-- Route: /orders/:id
-- Method: GET
-- Header
-    - Authorization: Bearer {token}
-
-- Responses
 
     
